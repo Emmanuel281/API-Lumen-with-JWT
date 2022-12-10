@@ -14,5 +14,14 @@ class ExampleController extends Controller
         //
     }
 
-    //
+    public function get($id = Null)
+    {
+        // if ($id != Null) {
+        //     $vendors = DB::table('ms_vendor')->where('id', '=', $id)->get();
+        // } else {
+        //     $vendors = DB::table('ms_vendor')->where('id', '=', $id)->get();
+        // }
+        $vendors = 'Sucsess';
+        return $vendors;
+    }
 }

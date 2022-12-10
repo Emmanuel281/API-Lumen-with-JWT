@@ -13,6 +13,22 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->group(['middleware' => 'auth'], function () use ($router) {
+    $router->get('/', function () use ($router) {
+        return $router->app->version();
+    });
+
+    // $router->get(
+    //     '/getvendor/{id}',
+    //     function () use ($router) {
+    //         return $router->app->version();
+    //     }
+    // );
+
+});
+$router->group(['prefix' => 'vendor'], function () use ($router) {
+    $router->get('/', 'MsVendorController@get');
+    $router->post('/', 'MsVendorController@store');
+    $router->put('/', 'MsVendorController@update');
+    // $router->get('/{id}', 'MsVendorController@getwithid');
 });
